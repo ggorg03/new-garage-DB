@@ -1,0 +1,70 @@
+INSERT INTO Marcas (nome) VALUES
+  ('Kawasaki'),
+  ('Ducati'),
+  ('Suzuki'),
+  ('BMW');
+
+INSERT INTO Categorias (nome) VALUES
+  ('Esportiva'),
+  ('Naked'),
+  ('Custom'),
+  ('Aventureira'),
+  ('Scooter'),
+  ('Off-road');
+
+INSERT INTO Motos (marca_id, categoria_id, modelo, cilindrada, peso, cavalaria, torque, capacidade_tanque) VALUES
+  (1, 1, 'CBR600RR', 600, 180, 120, 0.85, 17),
+  (2, 2, 'MT-07', 689, 182, 74, 0.68, 14),
+  (3, 3, 'Intruder 150', 150, 148, 14, 0.98, 11),
+  (4, 4, 'Versys 650', 649, 216, 68, 0.65, 21),
+  (5, 5, 'PCX 150', 149, 130, 13, 0.92, 8),
+  (6, 6, 'KX450', 449, 110, 60, 0.76, 6),
+  (1, 2, 'CB500F', 471, 189, 47, 0.55, 17),
+  (2, 3, 'Monster 821', 821, 206, 109, 0.88, 16),
+  (3, 4, 'V-Strom 650', 645, 213, 69, 0.75, 20),
+  (4, 5, 'C650GT', 647, 249, 60, 0.85, 15);
+
+INSERT INTO Clientes (nome, cpf, email, telefone, endereco) VALUES
+  ('João Silva', '12345678901', 'joao@email.com', '(11) 9999-9999', 'Rua Principal, 123'),
+  ('Maria Souza', '98765432101', 'maria@email.com', '(11) 8888-8888', 'Avenida Central, 456'),
+  ('Pedro Santos', '54321678901', 'pedro@email.com', '(11) 7777-7777', 'Rua Secundária, 789'),
+  ('Ana Oliveira', '90876543210', 'ana@email.com', '(11) 6666-6666', 'Praça da Liberdade, 987'),
+  ('Luiz Rodrigues', '12345098765', 'luiz@email.com', '(11) 5555-5555', 'Avenida Independência, 321'),
+  ('Carolina Almeida', '67890543210', 'carolina@email.com', '(11) 4444-4444', 'Rua dos Flores, 654');
+
+INSERT INTO Motos_Clientes (cliente_id, moto_id, cor, ano, kilometragem) VALUES
+  (1, 1, 'Vermelha', 2020, 5000),
+  (2, 2, 'Preto', 2021, 3000),
+  (3, 3, 'Azul', 2019, 8000),
+  (4, 4, 'Verde', 2022, 1500),
+  (5, 5, 'Branco', 2020, 4000),
+  (6, 6, 'Laranja', 2021, 2000),
+  (1, 3, 'Prata', 2018, 6000),
+  (2, 4, 'Preta', 2023, 100),
+  (3, 5, 'Vermelho', 2020, 2500),
+  (4, 6, 'Azul', 2019, 7000),
+  (5, 1, 'Branca', 2022, 3500);
+
+INSERT INTO Tipos_Servico (nome) VALUES
+  ('Troca de óleo'),
+  ('Revisão geral'),
+  ('Troca de pneus'),
+  ('Customização');
+
+INSERT INTO Servicos (descricao, data_servico, valor, motos_clientes_id, tipo_servico_id) VALUES
+  ('Troca de óleo e filtro', '2023-06-01', 50.00, 1, 1),
+  ('Revisão completa', '2023-06-02', 200.00, 2, 2),
+  ('Troca de pneus dianteiros', '2023-06-03', 150.00, 3, 3),
+  ('Balanceamento de rodas', '2023-06-04', 80.00, 4, 4),
+  ('Limpeza de carburador', '2023-06-05', 120.00, 5, 5),
+  ('Troca de óleo e filtro', '2023-06-06', 50.00, 6, 1),
+  ('Revisão geral', '2023-06-07', 180.00, 7, 2),
+  ('Alinhamento de rodas', '2023-06-08', 100.00, 8, 3),
+  ('Pintura e funilaria', '2023-06-09', 300.00, 9, 4),
+  ('Troca de óleo e filtro', '2023-06-10', 50.00, 10, 1),
+  ('Revisão completa', '2023-06-11', 200.00, 11, 2),
+  ('Troca de pneus traseiros', '2023-06-12', 150.00, 12, 3),
+  ('Balanceamento de rodas', '2023-06-13', 80.00, 13, 4),
+  ('Regulagem de suspensão', '2023-06-14', 120.00, 14, 5),
+  ('Troca de óleo e filtro', '2023-06-15', 50.00, 15, 1),
+  ('Revisão geral', '2023-06-16', 180.00, 16, 2);
