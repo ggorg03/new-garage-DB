@@ -17,10 +17,10 @@ CREATE TABLE Motos (
   categoria_id INTEGER NOT NULL,
   modelo VARCHAR(50) NOT NULL,
   cilindrada INTEGER,
-  peso INTEGER,
-  cavalaria INTEGER,
-  torque NUMERIC(2),
-  capacidade_tanque NUMERIC(1),
+  peso_kg INTEGER,
+  cavalaria_cv INTEGER,
+  torque_kgfm NUMERIC(2),
+  capacidade_tanque_l NUMERIC(1),
   FOREIGN KEY (marca_id) REFERENCES marcas(id),
   FOREIGN KEY (categoria_id) REFERENCES categorias(id)
 );
@@ -63,6 +63,7 @@ CREATE TABLE Servicos (
   descricao VARCHAR(200),
   data_servico DATE,
   valor DECIMAL(10, 2),
+  kilometragem_revisao INTEGER,
   motos_clientes_id INTEGER,
   tipo_servico_id INTEGER,
   FOREIGN KEY (motos_clientes_id) REFERENCES Motos_Clientes(id) ON DELETE CASCADE,
