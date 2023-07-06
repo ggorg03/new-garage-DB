@@ -19,8 +19,8 @@ CREATE TABLE Motos (
   cilindrada INTEGER,
   peso_kg INTEGER,
   cavalaria_cv INTEGER,
-  torque_kgfm NUMERIC(2),
-  capacidade_tanque_l NUMERIC(1),
+  torque_kgfm NUMERIC(3, 2),
+  capacidade_tanque_l NUMERIC(3, 1),
   FOREIGN KEY (marca_id) REFERENCES marcas(id),
   FOREIGN KEY (categoria_id) REFERENCES categorias(id)
 );
