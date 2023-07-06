@@ -1,0 +1,70 @@
+-- Criando a tabela "marcas"
+CREATE TABLE Marcas (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(50) NOT NULL
+);
+
+-- Criando a tabela "categorias"
+CREATE TABLE Categorias (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(50) NOT NULL
+);
+
+-- Criando a tabela "motos"
+CREATE TABLE Motos (
+  id SERIAL PRIMARY KEY NOT NULL,
+  marca_id INTEGER NOT NULL,
+  categoria_id INTEGER NOT NULL,
+  modelo VARCHAR(50) NOT NULL,
+  cilindrada INTEGER,
+  peso INTEGER,
+  cavalaria INTEGER,
+  torque NUMERIC(2),
+  capacidade_tanque NUMERIC(1),
+  FOREIGN KEY (marca_id) REFERENCES marcas(id),
+  FOREIGN KEY (categoria_id) REFERENCES categorias(id)
+);
+
+-- Criação tabela Clientes
+CREATE TABLE Clientes (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  cpf VARCHAR(11) UNIQUE,
+  email VARCHAR(100) UNIQUE,
+  telefone VARCHAR(20),
+  endereco VARCHAR(200)
+);
+
+--  Criando a tabela 'motos_clientes' que representa as motos dos clientes,
+-- note que as motos dos clientes também representam uma relação M pra M
+-- entre a tabela motos e a tabela clientes
+
+CREATE TABLE Motos_Clientes (
+  id SERIAL PRIMARY KEY NOT NULL,
+  cliente_id INTEGER REFERENCES Clientes(id) ON DELETE CASCADE,
+  moto_id INTEGER REFERENCES Motos(id) ON DELETE CASCADE,
+  cor VARCHAR(20),
+  ano INTEGER,
+  kilometragem INTEGER
+);
+
+-- Criação do tipo enumerado
+CREATE TYPE STATUS_SERVICOS AS ENUM ('pendente', 'em_andamento', 'concluido', 'cancelado');
+
+-- Criação da tabela "Tipos_Serviço"
+CREATE TABLE Tipos_Servico (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100)
+);
+
+-- Criando a tabela "Serviços"
+CREATE TABLE Servicos (
+  id SERIAL PRIMARY KEY,
+  descricao VARCHAR(200),
+  data_servico DATE,
+  valor DECIMAL(10, 2),
+  motos_clientes_id INTEGER,
+  tipo_servico_id INTEGER,
+  FOREIGN KEY (motos_clientes_id) REFERENCES Motos_Clientes(id) ON DELETE CASCADE,
+  FOREIGN KEY (tipo_servico_id) REFERENCES Tipos_Servico(id)
+);
