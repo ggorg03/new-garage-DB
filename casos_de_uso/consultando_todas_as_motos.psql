@@ -1,0 +1,4 @@
+-- Consulta todas as motos dos clientes
+SELECT *
+FROM Motos_Clientes
+INNER JOIN Motos ON Motos.id = Motos_Clientes.moto_id;
