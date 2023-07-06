@@ -1,8 +1,10 @@
 INSERT INTO Marcas (nome) VALUES
-  ('Kawasaki'),
+  ('Honda'),
+  ('Yamaha'),
   ('Ducati'),
   ('Suzuki'),
-  ('BMW');
+  ('BMW'),
+  ('Kawasaki');
 
 INSERT INTO Categorias (nome) VALUES
   ('Esportiva'),
@@ -12,17 +14,17 @@ INSERT INTO Categorias (nome) VALUES
   ('Scooter'),
   ('Off-road');
 
-INSERT INTO Motos (marca_id, categoria_id, modelo, cilindrada, peso, cavalaria, torque, capacidade_tanque) VALUES
+INSERT INTO Motos (marca_id, categoria_id, modelo, cilindrada, peso_kg, cavalaria_cv, torque_kgfm, capacidade_tanque_l) VALUES
   (1, 1, 'CBR600RR', 600, 180, 120, 0.85, 17),
   (2, 2, 'MT-07', 689, 182, 74, 0.68, 14),
-  (3, 3, 'Intruder 150', 150, 148, 14, 0.98, 11),
-  (4, 4, 'Versys 650', 649, 216, 68, 0.65, 21),
-  (5, 5, 'PCX 150', 149, 130, 13, 0.92, 8),
+  (4, 3, 'Intruder 150', 150, 148, 14, 0.98, 11),
+  (6, 4, 'Versys 650', 649, 216, 68, 0.65, 21),
+  (1, 5, 'PCX 150', 149, 130, 13, 0.92, 8),
   (6, 6, 'KX450', 449, 110, 60, 0.76, 6),
   (1, 2, 'CB500F', 471, 189, 47, 0.55, 17),
-  (2, 3, 'Monster 821', 821, 206, 109, 0.88, 16),
-  (3, 4, 'V-Strom 650', 645, 213, 69, 0.75, 20),
-  (4, 5, 'C650GT', 647, 249, 60, 0.85, 15);
+  (3, 3, 'Monster 821', 821, 206, 109, 0.88, 16),
+  (4, 4, 'V-Strom 650', 645, 213, 69, 0.75, 20),
+  (5, 5, 'C650GT', 647, 249, 60, 0.85, 15);
 
 INSERT INTO Clientes (nome, cpf, email, telefone, endereco) VALUES
   ('João Silva', '12345678901', 'joao@email.com', '(11) 9999-9999', 'Rua Principal, 123'),
@@ -36,35 +38,35 @@ INSERT INTO Motos_Clientes (cliente_id, moto_id, cor, ano, kilometragem) VALUES
   (1, 1, 'Vermelha', 2020, 5000),
   (2, 2, 'Preto', 2021, 3000),
   (3, 3, 'Azul', 2019, 8000),
-  (4, 4, 'Verde', 2022, 1500),
+  (4, 4, 'Verde', 2022, 3000),
   (5, 5, 'Branco', 2020, 4000),
   (6, 6, 'Laranja', 2021, 2000),
-  (1, 3, 'Prata', 2018, 6000),
-  (2, 4, 'Preta', 2023, 100),
-  (3, 5, 'Vermelho', 2020, 2500),
-  (4, 6, 'Azul', 2019, 7000),
+  (1, 3, 'Prata', 2018, 40000),
+  (2, 4, 'Preta', 2023, 1000),
+  (3, 5, 'Vermelho', 2020, 5000),
+  (4, 6, 'Azul', 2019, 30000),
   (5, 1, 'Branca', 2022, 3500);
 
 INSERT INTO Tipos_Servico (nome) VALUES
   ('Troca de óleo'),
   ('Revisão geral'),
   ('Troca de pneus'),
-  ('Customização');
+  ('Outros');
 
-INSERT INTO Servicos (descricao, data_servico, valor, motos_clientes_id, tipo_servico_id) VALUES
-  ('Troca de óleo e filtro', '2023-06-01', 50.00, 1, 1),
-  ('Revisão completa', '2023-06-02', 200.00, 2, 2),
-  ('Troca de pneus dianteiros', '2023-06-03', 150.00, 3, 3),
-  ('Balanceamento de rodas', '2023-06-04', 80.00, 4, 4),
-  ('Limpeza de carburador', '2023-06-05', 120.00, 5, 5),
-  ('Troca de óleo e filtro', '2023-06-06', 50.00, 6, 1),
-  ('Revisão geral', '2023-06-07', 180.00, 7, 2),
-  ('Alinhamento de rodas', '2023-06-08', 100.00, 8, 3),
-  ('Pintura e funilaria', '2023-06-09', 300.00, 9, 4),
-  ('Troca de óleo e filtro', '2023-06-10', 50.00, 10, 1),
-  ('Revisão completa', '2023-06-11', 200.00, 11, 2),
-  ('Troca de pneus traseiros', '2023-06-12', 150.00, 12, 3),
-  ('Balanceamento de rodas', '2023-06-13', 80.00, 13, 4),
-  ('Regulagem de suspensão', '2023-06-14', 120.00, 14, 5),
-  ('Troca de óleo e filtro', '2023-06-15', 50.00, 15, 1),
-  ('Revisão geral', '2023-06-16', 180.00, 16, 2);
+INSERT INTO Servicos (descricao, data_servico, valor, kilometragem_revisao, motos_clientes_id, tipo_servico_id) VALUES
+  ('Troca de óleo e filtro', '2023-06-01', 50.00, 1000, 1, 1),
+  ('Revisão completa', '2023-06-02', 200.00, 1000, 2, 2),
+  ('Troca de pneus dianteiros', '2023-06-03', 150.00, 1000, 3, 3),
+  ('Balanceamento de rodas', '2023-06-04', 80.00, 1000, 4, 3),
+  ('Limpeza de carburador', '2023-06-05', 120.00, 1000, 5, 4),
+  ('Troca de óleo e filtro', '2023-06-06', 50.00, 1000, 6, 1),
+  ('Revisão geral', '2023-06-07', 180.00, 1000, 7, 2),
+  ('Alinhamento de rodas', '2023-06-08', 100.00, 1000, 8, 3),
+  ('Pintura e funilaria', '2023-06-09', 300.00, 1000, 9, 4),
+  ('Troca de óleo e filtro', '2023-06-10', 50.00, 1000, 10, 1),
+  ('Revisão completa', '2023-06-11', 200.00, 1000, 11, 2),
+  ('Troca de pneu traseiro', '2023-06-12', 150.00, 4000, 1, 3),
+  ('Balanceamento de rodas', '2023-06-13', 80.00, 3000, 2, 3),
+  ('Regulagem de suspensão', '2023-06-14', 120.00, 15000, 10, 4),
+  ('Troca de óleo e filtro', '2023-06-15', 50.00, 4000, 9, 1),
+  ('Revisão geral', '2023-06-16', 180.00, 20000, 10, 2);
