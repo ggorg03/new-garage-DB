@@ -63,7 +63,7 @@ CREATE TABLE Servicos (
   descricao VARCHAR(200),
   data_servico DATE,
   valor DECIMAL(10, 2),
-  kilometragem_revisao INTEGER,
+  kilometragem_servico INTEGER,
   motos_clientes_id INTEGER,
   tipo_servico_id INTEGER,
   FOREIGN KEY (motos_clientes_id) REFERENCES Motos_Clientes(id) ON DELETE CASCADE,
