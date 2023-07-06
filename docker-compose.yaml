@@ -4,16 +4,16 @@ services:
     image: postgres:latest
     restart: always
     environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydatabase
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: database
 
   pgadmin:
     image: dpage/pgadmin4
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: myemail@example.com
-      PGADMIN_DEFAULT_PASSWORD: mypgadminpassword
+      PGADMIN_DEFAULT_EMAIL: user@example.com
+      PGADMIN_DEFAULT_PASSWORD: pgpassword
     ports:
       - 5050:80
 
