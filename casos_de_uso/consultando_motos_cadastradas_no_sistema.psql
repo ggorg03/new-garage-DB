@@ -1,0 +1,7 @@
+-- Consultando ficha técnica de todas as motos cadastradas na oficina
+SELECT mt.id, mc.nome AS marca, mt.modelo, c.nome AS categoria,
+       mt.cilindrada, mt.peso_kg, mt.cavalaria_cv,
+	   mt.torque_kgfm, mt.capacidade_tanque_l
+FROM Motos as mt
+INNER JOIN Marcas as mc ON mc.id = mt.marca_id
+INNER JOIN Categorias as c on c.id = mt.categoria_id;
