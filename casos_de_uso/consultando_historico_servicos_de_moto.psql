@@ -1,0 +1,11 @@
+-- MOTIVAÇÂO: Mecânico pode querer verificar todos os serviços que a moto já fez
+
+-- Consultando todos os serviços da moto do cliente de id 10
+SELECT s.id AS servico_id, s.descricao AS servico,
+    ts.nome AS tipo_servico, s.valor, s.kilometragem_servico,
+    s.data_servico 
+FROM Motos_Clientes AS mc
+INNER JOIN Servicos AS s ON s.motos_clientes_id = mc.id
+INNER JOIN Tipos_Servico AS ts ON ts.id = s.tipo_servico_id
+WHERE mc.id = 10
+ORDER BY s.data_servico DESC;
