@@ -1,0 +1,14 @@
+---- MOTIVAÇÃO: Uma aplicação pode ter uma tela em que lista
+-- as especificações das motos de um cliente
+
+-- Consultando ficha técnica das motos do cliente de ID 3
+SELECT mc.id, ma.nome AS marca, m.modelo, ca.nome AS categoria,
+       m.cilindrada, m.peso_kg, m.cavalaria_cv,
+	   m.torque_kgfm, m.capacidade_tanque_l, mc.cor, mc.ano,
+       mc.kilometragem
+FROM Clientes AS c
+INNER JOIN Motos_Clientes AS mc ON mc.cliente_id = c.id
+INNER JOIN Motos AS m ON m.id = mc.moto_id
+INNER JOIN Marcas AS ma ON ma.id = m.marca_id
+INNER JOIN Categorias AS ca ON ca.id = m.categoria_id
+WHERE c.id = 1;
