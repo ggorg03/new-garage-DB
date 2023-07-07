@@ -1,6 +1,9 @@
+-- MOTIVAÇÃO: Seria interessante contactar os clientes avisando que já
+-- está em tempo de fazer um novo serviço
+
 -- Consultando motos que tem mais de 6 meses desde o ultimo serviço
-SELECT mc.id, mc.cliente_id, MAX(s.kilometragem_revisao), MAX(s.data_servico)
+SELECT mc.id, mc.cliente_id, MAX(s.kilometragem_servico), MAX(s.data_servico)
 FROM Servicos AS s
 INNER JOIN Motos_Clientes AS mc ON mc.id = s.motos_clientes_id
-WHERE s.data_servico < current_date + interval '6 month'
+WHERE s.data_servico <= current_date + interval '6 month'
 GROUP BY mc.id;
